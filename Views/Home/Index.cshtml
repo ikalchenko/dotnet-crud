@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+    <div class="w-50 mx-auto text-center">
+        @if (ViewBag.User.Applicant != null)
+        {
+            <h1>Welcome, @ViewBag.User.Applicant.Name!</h1>
+
+        }
+        else if (ViewBag.User.Manufacturer != null)
+        {
+            <h1>Welcome, @ViewBag.User.Manufacturer.Name!</h1>
+        }
+        <div>
+            <h1>Choose action:</h1>
+
+            <a class="btn btn-primary" asp-controller="Drug" asp-action="Personal">Show my drugs</a>
+            @if (ViewBag.User.Manufacturer != null)
+            {
+                <a class="btn btn-primary" asp-controller="Drug" asp-action="All">Show all drugs</a>
+            }
+            @if (ViewBag.User.Applicant != null)
+            {
+                <a class="btn btn-primary" asp-controller="Drug" asp-action="Create">Create new drug</a>
+            }
+        </div>
+    </div>

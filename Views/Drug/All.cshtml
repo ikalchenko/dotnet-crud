@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Drug List";
+}
+
+    <div class="mx-auto">
+        <h1>All drugs</h1>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Trade Name</th>
+                    <th scope="col">International Name</th>
+                    <th scope="col">Form</th>
+                    <th scope="col">Formula</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var drug in ViewBag.Drugs)
+                {
+                <tr>
+                    <th scope="row">@drug.Id</th>
+                    <td>@drug.TradeName</td>
+                    <td>@drug.InternationalName</td>
+                    <td>@drug.Form</td>
+                    <td>@drug.Formula</td>
+                    <td><a class="btn btn-success" asp-controller="Drug" asp-action="AddToList" asp-route-drugId=@drug.Id>Add</a></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>

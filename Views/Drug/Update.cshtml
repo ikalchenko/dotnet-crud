@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Create Drug";
+}
+
+    <div class="w-50 mx-auto">
+        <h1>Update drug</h1>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">@Html.ValidationSummary()</div>
+        }
+        <form method="post">
+            <input type="text" hidden name="Id" value="@Model.Id">
+            <div class="form-group">
+                <label for="tradeName">Trade Name</label>
+                <input type="text" class="form-control" id="tradeName" name="TradeName" aria-describedby="emailHelp" placeholder="Trade Name" value="@Model.TradeName" required>
+            </div>
+            <div class="form-group">
+                <label for="InternationalName">International Name</label>
+                <input type="text" class="form-control" id="InternationalName" name="InternationalName" placeholder="International Name" value="@Model.InternationalName" required>
+            </div>
+            <div class="form-group">
+                <label for="Form">Form</label>
+                <input type="text" class="form-control" id="Form" name="Form" placeholder="Form" value="@Model.Form" required>
+            </div>
+            <div class="form-group">
+                <label for="Formula">Formula</label>
+                <input type="text" class="form-control" id="Formula" name="Formula" placeholder="Formula" value="@Model.Formula" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
